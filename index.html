@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="An exemple for the EventEmitter pattern">
+    <title>Todo : park my wild unicorn</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 content">
+            <h1>I forget everything</h1>
+            <h2>so I make lists</h2>
+            <h3>and forget I did</h3>
+            <hr>
+            <p class="text-right"><button type="button" class="btn btn-outline-success" id="addModalBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add a thing</button></p>
+            <div id="taskList"></div>
+        </div>
+    </div>
+</div>
+
+<div id="addModal" class="some-modal">
+
+    <div class="some-modal-content">
+        <span class="close">&times;</span>
+        <form id="addForm">
+            <div class="form-group">
+                <label for="taskName">Nouvelle tâche</label>
+                <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Nom de la tâche">
+            </div>
+            <button type="submit" class="btn btn-success" id="addTask">Ajouter</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="js/EventEmitter.js"></script>
+<script src="js/model.js"></script>
+<script src="js/taskModel.js"></script>
+<script src="js/listView.js"></script>
+<script src="js/addView.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
