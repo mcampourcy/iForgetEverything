@@ -3,11 +3,12 @@
  * @constructor
  */
 var TaskModel = function (datas) {
-    if(datas){
-        this.taskId = datas.taskId;
-        this.taskName = datas.taskName;
-        this.taskStatus = datas.taskStatus;
-    }
+    this.taskId = 0;
+    this.taskName = '';
+    this.taskStatus = 0;
+    if(datas.taskId) this.setTaskId(datas.taskId);
+    if(datas.taskName) this.setTaskName(datas.taskName);
+    if(datas.taskStatus) this.setTaskStatus(datas.taskStatus);
 };
 
 // Getters and setters

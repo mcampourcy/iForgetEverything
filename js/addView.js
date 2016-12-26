@@ -7,7 +7,7 @@ function AddView(model) {
 AddView.prototype = new EventEmitter();
 
 AddView.prototype.init = function () {
-    this.btnAdd = document.getElementById('addModalBtn');
+    this.btnAdd = document.getElementById('addTodo');
     this.modal = document.getElementById('addModal');
     this.close = document.getElementsByClassName('close')[0];
     this.addForm = document.getElementById('addForm');
