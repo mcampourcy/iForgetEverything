@@ -22,8 +22,7 @@ Controller.prototype.getAllTasks = function () {
 };
 
 Controller.prototype.addTask = function (datas) {
-    var task = new TaskModel(datas);
-    this.model.addTask(task);
+    this.model.addTask(datas);
 };
 
 Controller.prototype.changeStatusTask = function (taskId) {

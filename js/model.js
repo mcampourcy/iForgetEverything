@@ -20,11 +20,12 @@ Model.prototype.getAllTasks = function () {
  * add a task in the local storage
  * @param task
  */
-Model.prototype.addTask = function (task) {
+Model.prototype.addTask = function (datas) {
+    var task = new TaskModel(datas);
     task.setTaskId(this.taskList.length);
     task.setTaskStatus(0);
     this.taskList.push(task);
-    localStorage.setItem('tasks', JSON.stringify(this.taskList));
+    this.updateJson();
     this.emit('LIST');
 };
 
@@ -40,7 +41,7 @@ Model.prototype.changeStatusTask = function (taskId) {
             task.taskStatus = this.task.getTaskStatus();
         }
     }.bind(this));
-    localStorage.setItem('tasks', JSON.stringify(this.taskList));
+    this.updateJson();
     this.emit('LIST');
 };
 
@@ -50,6 +51,10 @@ Model.prototype.removeTask = function (taskId) {
             this.taskList.splice(this.taskList.indexOf(task), 1);
         }
     }.bind(this));
-    localStorage.setItem('tasks', JSON.stringify(this.taskList));
+    this.updateJson();
     this.emit('LIST');
+};
+
+Model.prototype.updateJson = function () {
+    localStorage.setItem('tasks', JSON.stringify(this.taskList));
 };
