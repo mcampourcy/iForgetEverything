@@ -1,15 +1,13 @@
-/**
- * @param datas
- * @constructor
- */
-var TaskModel = function (datas) {
-    this.taskId = 0;
-    this.taskName = '';
-    this.taskStatus = 0;
-    if(datas.taskId) this.setTaskId(datas.taskId);
-    if(datas.taskName) this.setTaskName(datas.taskName);
-    if(datas.taskStatus) this.setTaskStatus(datas.taskStatus);
-};
+class TaskModel{
+    constructor(datas){
+        this.taskId = 0;
+        this.taskName = '';
+        this.taskStatus = 0;
+        if(datas.taskId) this.setTaskId(datas.taskId);
+        if(datas.taskName) this.setTaskName(datas.taskName);
+        if(datas.taskStatus) this.setTaskStatus(datas.taskStatus);
+    }
+}
 
 // Getters and setters
 TaskModel.prototype.getTaskId = function () {
