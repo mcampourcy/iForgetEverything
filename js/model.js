@@ -10,9 +10,9 @@ class Model extends EventEmitter{
      */
     getAllTasks(){
         var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        tasks.forEach(function (task) {
+        tasks.map((task) => {
             this.taskList.push(new TaskModel(task));
-        }, this);
+        });
     }
     /**
      * add a task in the local storage

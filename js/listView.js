@@ -20,6 +20,7 @@ class ListView extends EventEmitter{
             this.model.taskList.forEach(function (task) {
                 //create elements
                 let p = document.createElement('p');
+                // console.log(task);
                 let text = document.createTextNode(task.taskName);
                 let trashIcon = document.createElement('div');
                 trashIcon.className = 'fa fa-times';
