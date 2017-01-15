@@ -1,35 +1,25 @@
 class TaskModel{
     constructor(datas){
-        this.taskId = 0;
-        this.taskName = '';
-        this.taskStatus = 0;
-        if(datas.taskId) this.setTaskId(datas.taskId);
-        if(datas.taskName) this.setTaskName(datas.taskName);
-        if(datas.taskStatus) this.setTaskStatus(datas.taskStatus);
+        this._taskId = datas.taskId;
+        this._taskName = datas.taskName;
+        this._taskStatus = datas.taskStatus;
+    }
+    get taskId(){
+        return this._taskId;
+    }
+    set taskId(taskId){
+        this._taskId = taskId;
+    }
+    get taskName(){
+        return this._taskName;
+    }
+    set taskName(taskName){
+        this._taskName = taskName;
+    }
+    get taskStatus(){
+        return this._taskStatus;
+    }
+    set taskStatus(taskStatus){
+        this._taskStatus = taskStatus;
     }
 }
-
-// Getters and setters
-TaskModel.prototype.getTaskId = function () {
-    return this.taskId;
-};
-
-TaskModel.prototype.setTaskId = function (taskId) {
-    this.taskId = taskId;
-};
-
-TaskModel.prototype.getTaskName = function () {
-    return this.taskName;
-};
-
-TaskModel.prototype.setTaskName = function (taskName) {
-    this.taskName = taskName;
-};
-
-TaskModel.prototype.getTaskStatus = function () {
-    return this.taskStatus;
-};
-
-TaskModel.prototype.setTaskStatus = function (taskStatus) {
-    this.taskStatus = taskStatus;
-};

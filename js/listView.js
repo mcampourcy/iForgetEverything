@@ -20,17 +20,17 @@ class ListView extends EventEmitter{
             this.model.taskList.forEach(function (task) {
                 //create elements
                 let p = document.createElement('p');
-                let text = document.createTextNode(task.getTaskName());
+                let text = document.createTextNode(task.taskName);
                 let trashIcon = document.createElement('div');
                 trashIcon.className = 'fa fa-times';
-                trashIcon.dataset.idTask = task.getTaskId();
+                trashIcon.dataset.idTask = task.taskId;
                 let checkIcon = document.createElement('div');
-                if (task.getTaskStatus() == 1) {
+                if (task.taskStatus == 1) {
                     checkIcon.className = 'fa fa-check-square-o';
                 } else {
                     checkIcon.className = 'fa fa-square-o';
                 }
-                checkIcon.dataset.idTask = task.getTaskId();
+                checkIcon.dataset.idTask = task.taskId;
 
                 //set structure
                 this.taskList.appendChild(p);
