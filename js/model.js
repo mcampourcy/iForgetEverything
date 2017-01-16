@@ -9,7 +9,7 @@ class Model extends EventEmitter{
      * Put the datas in local storage, then push them in getters and setters
      */
     getAllTasks(){
-        var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks.map((task) => {
             this.taskList.push(new TaskModel(task));
         });
@@ -19,34 +19,38 @@ class Model extends EventEmitter{
      * @param task
      */
     addTask(datas){
-        var task = new TaskModel(datas);
-        task.taskId = (this.taskList.length);
+        let task = new TaskModel(datas);
+        task.taskId = this.taskList.length;
         task.taskStatus = 0;
         this.taskList.push(task);
         this.updateJson();
         this.emit('LIST');
     }
     changeStatusTask(taskId){
-        this.task = new TaskModel(this.taskList[taskId]);
+        for(let task of this.taskList){
+            if(task.taskId == taskId){
+                this.task = task;
+            }
+        }
         if(this.task.taskStatus == 0){
             this.task.taskStatus = 1;
         } else if(this.task.taskStatus == 1){
             this.task.taskStatus = 0;
         }
-        this.taskList.forEach(function (task) {
+        for(let task of this.taskList){
             if(task.taskId == this.task.taskId){
                 task.taskStatus = this.task.taskStatus;
             }
-        }.bind(this));
+        }
         this.updateJson();
         this.emit('LIST');
     }
     removeTask(taskId){
-        this.taskList.forEach(function (task) {
+        for(let task of this.taskList){
             if(task.taskId == taskId){
                 this.taskList.splice(this.taskList.indexOf(task), 1);
             }
-        }.bind(this));
+        }
         this.updateJson();
         this.emit('LIST');
     }

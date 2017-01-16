@@ -17,7 +17,7 @@ class ListView extends EventEmitter{
             this.taskList.innerHTML = '';
         } else {
             this.taskList.innerHTML = '';
-            this.model.taskList.forEach(function (task) {
+            for(let task of this.model.taskList){
                 //create elements
                 let p = document.createElement('p');
                 // console.log(task);
@@ -39,18 +39,18 @@ class ListView extends EventEmitter{
                 p.appendChild(checkIcon);
                 p.appendChild(text);
 
-                checkIcon.addEventListener('click', function (e) {
+                checkIcon.addEventListener('click', (e) => {
                     e.preventDefault();
                     this.emit('STATUS', e.currentTarget.dataset.idTask);
-                }.bind(this));
+                });
 
-                trashIcon.addEventListener('click', function (e) {
+                trashIcon.addEventListener('click', (e) => {
                     e.preventDefault();
                     let msg = confirm('Do you really want to delete this todo ?');
                     if (msg) this.emit('REMOVE', e.currentTarget.dataset.idTask);
-                }.bind(this));
+                });
 
-            }.bind(this));
+            }
         }
     }
 }

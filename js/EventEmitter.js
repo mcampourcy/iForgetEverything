@@ -37,9 +37,9 @@ class EventEmitter{
      */
     emit(name, data){
     if(this.eventsMap[name]){
-        this.eventsMap[name].forEach(function (callback) {
+        for(let callback of this.eventsMap[name]){
             callback(data) ;
-        });
+        };
     }
 };
 }

@@ -13,28 +13,28 @@ class AddView extends EventEmitter{
         this.input = document.getElementById('taskName');
     }
     bindListeners(){
-        this.btnAdd.addEventListener('click', function () {
+        this.btnAdd.addEventListener('click', () => {
             this.display();
-        }.bind(this));
+        });
 
-        this.addForm.addEventListener('submit', function (e) {
+        this.addForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            var task = {};
+            let task = {};
             task['taskName'] = this.input.value;
             this.emit('ADD', task);
             this.modal.style.display = "none";
-        }.bind(this));
+        });
     }
     display(){
         this.modal.style.display = "block";
         this.input.value = '';
-        this.close.onclick = function() {
+        this.close.addEventListener('click', () => {
             this.modal.style.display = "none";
-        }.bind(this);
-        window.onclick = function(event) {
+        });
+        window.addEventListener('click', (event) => {
             if (event.target == this.modal) {
                 this.modal.style.display = "none";
             }
-        }.bind(this);
+        });
     }
 }
